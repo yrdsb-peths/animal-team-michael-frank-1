@@ -10,5 +10,12 @@ public class MyWorld extends World {
         
         
     }
-    
+    public void createFries()
+    {
+        Fries fries = new Fries();
+        int x =Greenfoot.getRandomNumber(600);
+        int y =0;
+        addObject(fries,x,y);
+        
+    }
 }
