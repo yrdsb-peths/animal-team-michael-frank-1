@@ -65,5 +65,17 @@ public class Elephant extends Actor
             facing = "right";
         }
         animateElephant();
+        eat();
+    }
+    public void eat()
+    {
+        if(isTouching(Fries.class))
+        {
+            removeTouching(Fries.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.createFries();
+            world.increaseScore();
+            elephantSound.play();
+        }
     }
 }
