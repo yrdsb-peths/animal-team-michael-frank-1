@@ -11,9 +11,13 @@ public class Elephant extends Actor
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
     GreenfootImage[] idleRight = new GreenfootImage[8];
     GreenfootImage[] idleLeft = new GreenfootImage[8];
-    
+    // Direction the elephant is facing
     String facing = "right";
     SimpleTimer animationTimer = new SimpleTimer();
+    
+    /**
+     * Constructor  - The code that gets run one time when object is created
+     */
     public Elephant()
     {
         for(int i = 0; i < 8; i++)
@@ -29,9 +33,13 @@ public class Elephant extends Actor
             idleLeft[i].scale(100, 100);
         }
         animationTimer.mark();
-
+        // Initial elephant image
         setImage(idleRight[0]);
     }
+    
+    /**
+     * Animate the elephant
+     */
     int imageIndex = 0;
     public void animateElephant()
     {
@@ -54,6 +62,7 @@ public class Elephant extends Actor
     }
     public void act()
     {
+        // The action of the elephant
         if(Greenfoot.isKeyDown("left"))
         {
             move(-2);
@@ -64,9 +73,15 @@ public class Elephant extends Actor
             move(2);
             facing = "right";
         }
+        // Animate the elephant
         animateElephant();
+        // Remove fries if elephant eats it
         eat();
     }
+    
+    /**
+     * Eat the fries and spawn new fries if a fries is eaten
+     */
     public void eat()
     {
         if(isTouching(Fries.class))
