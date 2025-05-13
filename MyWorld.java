@@ -10,6 +10,11 @@ public class MyWorld extends World {
         createFries();
         
     }
+    public void gameOver()
+    {
+        Label gameOverLabel = new Label("'Game Over",100);
+        addObject(gameOverLabel,300,200);
+    }
     public void createFries()
     {
         Fries fries = new Fries();
